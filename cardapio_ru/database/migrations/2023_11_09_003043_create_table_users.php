@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id('ID_USER');
             $table->string('LOGIN');
-            $table->id('PASSWORD');
+            $table->string('PASSWORD');
+            $table->foreignId('ID_COMPANY');
             $table->foreign('ID_COMPANY')->references('ID_COMPANY')->on('COMPANIES');
-            $table->id('ACESS_LEVEL');
+            $table->integer('ACESS_LEVEL');
 
             /*
             ID_USUARIO

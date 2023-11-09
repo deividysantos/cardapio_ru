@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('foods', function (Blueprint $table) {
             $table->id('ID_FOOD');
-            $table->id('NAME');
-            $table->id('LACTOSE');
-            $table->id('GLUTEN');
+            $table->string('NAME', 255);
+            $table->string('LACTOSE', 1);
+            $table->string('GLUTEN', 1);
+            $table->foreignId('ID_COMPANY');
             $table->foreign('ID_COMPANY')->references('ID_COMPANY')->on('COMPANIES');
 
             /*

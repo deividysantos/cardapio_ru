@@ -13,16 +13,26 @@ return new class extends Migration
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id('ID_MEAL');
+            $table->foreignId('SALAD1', 255);
+            $table->foreignId('SALAD2', 255);
+            $table->foreignId('SALAD3', 255);
+            $table->foreignId('MAIN_COUSE', 255);
+            $table->foreignId('GARRISON', 255);
+            $table->foreignId('VEGETARIAN', 255);
+            $table->foreignId('DESSERT', 255);
+            $table->foreignId('MEAL_DATE');
+            $table->foreignId('CREATED_AT');
+
+            $table->foreignId('ID_FOOD');
             $table->foreign('SALAD1')->references('ID_FOOD')->on('FOODS');
             $table->foreign('SALAD2')->references('ID_FOOD')->on('FOODS');
             $table->foreign('SALAD3')->references('ID_FOOD')->on('FOODS');
             $table->foreign('MAIN_COUSE')->references('ID_FOOD')->on('FOODS');
             $table->foreign('GARRISON')->references('ID_FOOD')->on('FOODS');
             $table->foreign('VEGETARIAN')->references('ID_FOOD')->on('FOODS');
-            $table->foreign('SALAD1')->references('ID_FOOD')->on('FOODS');
             $table->foreign('DESSERT')->references('ID_FOOD')->on('FOODS');
-            $table->date('MEAL_DATE');
-            $table->date('CREATED_AT');
+
+
             
             /*
                 SALADA1
