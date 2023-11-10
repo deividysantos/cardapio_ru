@@ -21,6 +21,8 @@ return new class extends Migration
             $table->foreignId('TEA');
             $table->foreignId('FRUIT');
             $table->foreignId('PROTEIN');
+            $table->date('MEAL_DATE');
+            $table->date('CREATED_AT');
 
             $table->foreign('BREAD1')->references('ID_FOOD')->on('FOODS');
             $table->foreign('BREAD2')->references('ID_FOOD')->on('FOODS');
@@ -30,8 +32,6 @@ return new class extends Migration
             $table->foreign('TEA')->references('ID_FOOD')->on('FOODS');
             $table->foreign('FRUIT')->references('ID_FOOD')->on('FOODS');
             $table->foreign('PROTEIN')->references('ID_FOOD')->on('FOODS');
-            $table->date('MEAL_DATE');
-            $table->date('CREATED_AT');
 
             /*
             ID_CAFE
