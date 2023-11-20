@@ -15,21 +15,19 @@ class User extends Authenticatable
 
     protected $fillable = [
         'LOGIN',
+        'ID_COMPANY',
+        'ACESS_LEVEL',
+    ];
+
+    protected $hidden = [
         'PASSWORD',
+    ];
+
+    protected $casts = [
+        'PASSWORD' => 'hashed',
     ];
 
     public function Companie(): BelongsTo{
         return $this->belongsTo(Companie::class, 'ID_COMPANIE');
     }
-
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
 }

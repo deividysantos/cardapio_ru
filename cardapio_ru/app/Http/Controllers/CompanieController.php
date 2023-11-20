@@ -6,19 +6,26 @@ use Illuminate\Http\Request;
 
 class CompanieController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         return view ('companie.create');
     }
-    public function edit ($ID_COMPANIE){
+
+    public function edit ($ID_COMPANIE)
+    {
         $companie =  Companie::find($ID_COMPANIE);
-             return view ('companie.edit', compact ('companie'));
+        return view ('companie.edit', compact ('companie'));
     }
-    public function update (Request $request, $ID_COMPANIE){
+
+    public function update (Request $request, $ID_COMPANIE)
+    {
         $companie = Companie::find($ID_COMPANIE);
         $companie->update($request->all());
-            return redirect()->route('companie.index');
+        return redirect()->route('companie.index');
     }
-    public function delete($ID_COMPANIE){
+
+    public function delete($ID_COMPANIE)
+    {
         $companie = Companie::find($ID_COMPANIE);          
         return view('companie.delete',compact('companie'));
     }
