@@ -21,19 +21,19 @@ class UserController extends Controller
     {
         $user = User::find($ID_USER);
         $user->update($request->all());
-        return redirect()->route('companie.index');
+        return redirect()->route('user.index');
     }
 
     public function delete($ID_USER)
     {
         $user = User::find($ID_USER);          
-        return view('companie.delete',compact('companie'));
+        return view('user.delete',compact('user'));
     }
 
     public function destroy($ID_USER)
     {
         $user = User::find($ID_USER);     
         $user->delete($ID_USER);
-        return redirect()->route('companie.index');
+        return redirect()->route('user.index');
     }
 }

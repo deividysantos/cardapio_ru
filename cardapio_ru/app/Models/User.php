@@ -14,20 +14,19 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        'LOGIN',
-        'ID_COMPANY',
+        'name',
+        'email',
         'ACESS_LEVEL',
+        'password',
     ];
 
     protected $hidden = [
-        'PASSWORD',
+        'password',
     ];
 
     protected $casts = [
-        'PASSWORD' => 'hashed',
+        'password' => 'hashed',
     ];
 
-    public function Companie(): BelongsTo{
-        return $this->belongsTo(Companie::class, 'ID_COMPANIE');
-    }
+    
 }
